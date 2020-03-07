@@ -19,7 +19,8 @@ import javax.swing.SwingConstants;
  * Displays the current, average, high wind, forecast, windchill, and heat index values.
  * 
  * @author Ryan Donohue
- * @version February 20, 2020
+ * @author Trevor Peters 
+ * @version March 7th, 2020
  */
 public class WindPanel extends JPanel implements PropertyChangeListener {
 	
@@ -29,27 +30,57 @@ public class WindPanel extends JPanel implements PropertyChangeListener {
 	 */
 	private static final long serialVersionUID = 720298670523283096L;
 	
+	/** string[] for wind directions*/
 	private String[] myHeadings = {"N", "NNE", "NE", "ENE", "E", "ESE",  "SE",  "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"};
+	
+	/** string for forecasts */
 	private String[] myForecasts = {"Foggy", "Rainy", "Cloudy", "Sunny", "Windy"};
+	
+	/** the highest wind speed*/
 	private double myHighWind = 0.0;
+	
+	/** the current wind speed*/
 	private double myCurWind = 6.0;
+	
+	/** integer that shifts the direction the wind is heading */
 	private int myWindShift;
+	
+	/** JLabel for myWindSpd.*/
 	private JLabel myWindSpd;
+	
+	/**JLabel for AvgWindSpd.*/
 	private JLabel myAvgWindSpd;
+	
+	/** JLabel for WindDir.*/
 	private JLabel myWindDir;
+	
+	/**Jlabel for HighWindSpeed.*/
 	private JLabel myHighWindSpd;
+	
+	/** JLabel for Wind chill.*/
 	private JLabel myWindchillLabel;
+	
+	/** Jlabel for the HeatIndex.*/
 	private JLabel myHeatindexLabel;
+	
+	/** a JLabel for predicting the future weather.*/
 	private JLabel myWeatherPrediction;
+	
+	/**used to generate random values.*/
 	private Random myRandom;
 	
+	/**
+	 * Constructor for this class
+	 * Sets up the Wind Panel for the vantage vue application.
+	 * @param theFrame that will use this panel
+	 */
 	public WindPanel(JFrame theFrame) {
 		super();
 		this.setBounds(12, 114, 324, 143);
 		theFrame.getContentPane().add(this);
 		this.setLayout(null);
 		myRandom = new Random();
-
+		
 		JLabel windLabel = new JLabel("Wind Speed");
 		windLabel.setBounds(75, 8, 81, 16);
 		this.add(windLabel);
@@ -174,29 +205,53 @@ public class WindPanel extends JPanel implements PropertyChangeListener {
         double windChill = (0.6215*theOutsideTemp) + 35.74 + (0.4275*theOutsideTemp - 35.75) * Math.pow(theWindSpeed, 0.16);
         myWindchillLabel.setText(Weather.formatValue(windChill) + "F");
 	}
-
+	
+	/**
+	 * returns myHighWind.
+	 * @return myHighWind.
+	 */
 	public double getMyHighWind() {
 		return myHighWind;
 	}
 
+	/**
+	 * returns myCurWind.
+	 * @return myCurWind.
+	 */
 	public double getMyCurWind() {
 		return myCurWind;
 	}
 
+	/**
+	 * returns myWindShift.
+	 * @return myWindShift.
+	 */
 	public int getMyWindShift() {
 		return myWindShift;
 	}
-	// {
+	
+	/**
+	 * returns the direction the wind is coming from as a String.
+	 * @return the direction the wind is coming from as a String.
+	 */
 	public String getMyWindDir() {
 		return myWindDir.getText();
 	}
 	
+	/**
+	 * returns the current wind speed as a string.
+	 * @return the current wind speed as a string.
+	 */
 	public String getMyWindSpd() {
 		return myWindSpd.getText();
 	}
 	
+	/**
+	 * returns the current wind speed.
+	 * @return the current wind speed.
+	 */
 	public double getMyWindSpdValue() {
-		String windReading = myWindSpd.getText();
+		String windReading = getMyWindSpd();
 		double windValue = (Integer.parseUnsignedInt(windReading.substring(0, windReading.length()-6))*10)
 				+ Integer.parseUnsignedInt(windReading.substring(windReading.length()-5, windReading.length()-4));
 		return windValue / 10;

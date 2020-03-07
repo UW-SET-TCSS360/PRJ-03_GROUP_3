@@ -17,6 +17,8 @@ class WindPanelTest {
 		assertAll("Getter",
 				() -> assertNotNull(testWind.getMyHighWind()),
 				() -> assertNotNull(testWind.getMyCurWind()),
-				() -> assertNotNull(testWind.getMyWindShift()));
+				() -> assertNotNull(testWind.getMyWindShift()),
+				() -> assertNotNull(testWind.getMyWindDir()),
+				() -> assertNotNull(testWind.getMyWindSpd()));
 	}
 }

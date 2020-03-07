@@ -15,40 +15,32 @@ import javax.swing.JPanel;
 /**
  * The panel that shows the wind speed and direction graphically.
  * 
- * @author  Group 6
- * @version February 20, 2020
+ * @author  Group 6 February 20, 2020
+ * @author  Trevor Peters March 7th, 2020
+ * @version March 7th, 2020
  */
 public class WindDirectionPanel extends JPanel {
 	
-	/**
-	 * The unique ID for the Serializable interface
-	 */
+	/** The unique ID for the Serializable interface*/
 	private static final long serialVersionUID = -7614555071611756523L;
 	
+	/** String[] for the directions of the wind*/
 	private static final String[] DIRECTIONS = {"N", "NNE", "NE", "ENE", "E", "ESE",  "SE",  
 			"SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"};
-	
-	/**
-	 * The wind speed sensor data
-	 */
+			
+	/** The wind speed sensor data*/
 	private String speed;
-	/**
-	 * The wind direction sensor data
-	 */
-	// {
+	
+	/** The wind direction sensor data*/
 	private String dir;
-	// }
-	/**
-	 * The Stroke that will be used to draw the WindPanel
-	 */
+	
+	/** The Stroke that will be used to draw the WindPanel*/
 	private Stroke myStroke;
 	
 	/**
 	 * The constructor for the WindPanel
-	 * 
 	 * @param diam the diameter of the circular wind panel
 	 */
-	// {
 	public WindDirectionPanel(int diam, JFrame frame) {
 		super();
 		this.setBounds(100, 265, 150, 150);
@@ -59,56 +51,43 @@ public class WindDirectionPanel extends JPanel {
 		this.setPreferredSize(new Dimension(diam, diam));
 		this.setMinimumSize(new Dimension(diam, diam));
 	}
-	// }
 	
 	/**
 	 * Updates the value of the wind speed sensor data
-	 * 
 	 * @param speed the wind speed sensor data
 	 */
-	// {
 	public void updateWindSpeed(String speed) {
 		this.speed = speed;
 		repaint();
 	}
-	// }
 	
 	/**
 	 * Updates the indicator of the wind direction sensor
 	 * @param myDir the wind direction indicator
 	 */
-	// {
 	public void updateWindDirection(String myDir) {
 		this.dir = myDir;
 		repaint();
 	}
-	// }
 	
 	/**
 	 * Retrieves the last wind speed sensor data
-	 * 
 	 * @return the last wind speed sensor data
 	 */
-	// {
 	public String getSpeed() {
 		return speed;
 	}
-	// }
 	
 	/**
 	 * Retrieves the last wind direction sensor data
-	 * 
 	 * @return the last wind speed sensor data
 	 */
-	// {
 	public String getDir() {
 		return dir;
 	}
-	// }
 	
 	/**
 	 * Paints the wind panel
-	 * 
 	 * @param theGraphics the graphics device onto which to paint the wind panel
 	 */
 	@Override
@@ -159,7 +138,6 @@ public class WindDirectionPanel extends JPanel {
 						new int[] {(int) (getHeight()*(-0.85)/2) , (int) (-getHeight()/2.0), (int) (getHeight()*(-0.85)/2)}, 3);
 		g2d.rotate(angle * -Math.PI/180);
 		g2d.translate(-getWidth()/2.0, -getHeight()/2.0);
-		//////////// }
 		
 		g2d.dispose();
 	}

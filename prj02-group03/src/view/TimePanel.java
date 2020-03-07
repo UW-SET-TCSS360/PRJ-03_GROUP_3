@@ -17,6 +17,8 @@ import javax.swing.Timer;
  * Displays the time, date, high, low, moon phase, sunrise time, and sunset time values.
  * 
  * @author Group 3
+ * @author Treovr Peters March 7th 2020
+ * @version March 7th 2020
  */
 public class TimePanel extends JPanel {
 
@@ -26,11 +28,21 @@ public class TimePanel extends JPanel {
      * http://docs.oracle.com/javase/7/docs/api/java/io/Serializable.html
 	 */
 	private static final long serialVersionUID = -7341235861935972980L;
+	
+	/** Jlabel for current time*/
 	private JLabel myCurrentTimeLabel;
+	
+	/** JLabel for Sunset time*/
     private JLabel mySunsetTime;
-	private JLabel myLowTemp;
+    
+	/** JLabell for LowTemp*/
+    private JLabel myLowTemp;
+    
+    /** JLabel for SunriseTime*/
 	private JLabel mySunriseTime;
-	private JLabel myHiTemp;
+	
+	/** JLabel for HighTemp*/
+	private JLabel myHighTemp;
 	
 	/**
 	 * Constructor for the panel and labels.
@@ -94,11 +106,11 @@ public class TimePanel extends JPanel {
 		mySunriseTime.setBounds(90, 48, 45, 14);
 		this.add(mySunriseTime);
 		
-		myHiTemp = new JLabel((48 + (rand.nextInt(5) - 2)) + "F");
-		myHiTemp.setHorizontalAlignment(SwingConstants.CENTER);
-		myHiTemp.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		myHiTemp.setBounds(88, 68, 48, 14);
-		this.add(myHiTemp);
+		myHighTemp = new JLabel((48 + (rand.nextInt(5) - 2)) + "F");
+		myHighTemp.setHorizontalAlignment(SwingConstants.CENTER);
+		myHighTemp.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		myHighTemp.setBounds(88, 68, 48, 14);
+		this.add(myHighTemp);
 		
 		JLabel myHiLabel = new JLabel("Hi");
 		myHiLabel.setHorizontalAlignment(SwingConstants.CENTER);

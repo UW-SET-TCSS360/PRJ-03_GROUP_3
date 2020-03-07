@@ -17,7 +17,7 @@ import view.WindDirectionPanel;
  * @version February 24, 2020
  */
 public class WindDirectionPanelTest {
-
+	
 	/**
 	 * Set up the JFrame for the wind direction panel.
 	 */
