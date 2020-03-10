@@ -28,7 +28,8 @@ import java.awt.Font;
 /**
  * A controller for the Weather model.
  * 
- * @author Group 3
+ * @author Brandon Kennedy
+ * @version March 9, 2020
  */
 public class WeatherController implements ActionListener {
 	
@@ -124,12 +125,10 @@ public class WeatherController implements ActionListener {
 		myMoonPanel = new MoonPanel();
 		myMoonPanel.setBounds(594, 216, 158, 103);
 
-		//////////////// {
 		myFrame.setBounds(100, 100, 788, 800);
 		myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		myGraphPanel = new GraphPanel(myFrame.getWidth(), (int) myFrame.getHeight(), myFrame);
 		myGraphPanel.setBounds(20, 482, 732, 280);
-		//////////////// }
 		
 		myButtonPanel = new ButtonPanel(myFrame);
 		myButtonPanel.setBounds(240, 128, 505, 77);
@@ -149,13 +148,10 @@ public class WeatherController implements ActionListener {
 		myFrame.getContentPane().add(myButtonPanel);
 		myFrame.getContentPane().add(myMoonPanel);
 		myFrame.getContentPane().add(myGraphPanel);
-		//
 		
 		myWeather.addPropertyChangeListener(myTempPanel);
 		myWeather.addPropertyChangeListener(myRainPanel);
-		//////////////// {
 		
-		//////////////// {
 		myWindDirectionPanel = new WindDirectionPanel(myFrame.getHeight(), myFrame);
 		myWindDirectionPanel.setBounds(240, 328, 158, 144);
 		myFrame.getContentPane().add(myWindDirectionPanel);
@@ -200,9 +196,7 @@ public class WeatherController implements ActionListener {
 		Timer fiftyTimer = new Timer();
 		Timer tenTimer = new Timer();
 		Timer twoFiveTimer = new Timer();
-		////////////{
 		Timer twoSecondTimer = new Timer();
-		////////////}
 		
 		TimerTask sixtyTask = new TimerTask() {
 			public void run() {
@@ -237,7 +231,6 @@ public class WeatherController implements ActionListener {
 		};
 		twoFiveTimer.schedule(twoFiveTask, 0, 2500);	
 		
-		//////////// {
 		TimerTask twoSecondTask = new TimerTask() {
 			public void run() {
 				myGraphPanel.updateSensorValue(GraphPanel.TEMP_SENSOR, (int) (myTempPanel.getOutsideTemp()*10));
@@ -248,11 +241,9 @@ public class WeatherController implements ActionListener {
 				Date date = new Date();
 				myGraphPanel.updateTimeRecords(date.toString().substring(11, 19));
 				myGraphPanel.updateDisplay();
-
 			}
 		};
 		twoSecondTimer.schedule(twoSecondTask, 1000, 2000);
-		//////////// }
 	}
 
 	/**
