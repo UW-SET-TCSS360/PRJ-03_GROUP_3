@@ -5,7 +5,8 @@ import java.beans.PropertyChangeListener;
 /**
  * Defines property change support implementation and event properties
  * 
- * @author Ryan Donohue
+ * @author Brandon Kennedy
+ * @version March 9, 2020
  */
 public interface WeatherProperties {
 	
