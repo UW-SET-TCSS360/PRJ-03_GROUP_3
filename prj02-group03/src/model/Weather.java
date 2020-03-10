@@ -2,14 +2,15 @@ package model;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.util.Random;
 
 /**
  * Model that provides values for various labels.
  * 
- * @author Ryan Donohue
- *
+ * @author Brandon Kennedy
+ * @version March 9, 2020
  */
 public class Weather implements WeatherProperties {
 	
